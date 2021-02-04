@@ -11,7 +11,7 @@ class Orders extends Component {
     this.props.onFetchOrders();
   }
   render() {
-    let orders = <Spinner />;
+    let orders = this.props.error ? <p>Error - Getting the orders</p> : <Spinner />;
     if (!this.props.loading) {
       orders = this.props.orders.map((order) => <Order key={order.id} ingredients={order.ingredients} price={+order.price} />);
     }
